@@ -20,6 +20,9 @@
         display: none;
       }
     </style>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://builds.emberjs.com/tags/v2.5.0/ember.debug.js"></script>
+    <script src="http://builds.emberjs.com/tags/v2.5.0/ember-template-compiler.js"></script>
   </head>
   <body class="mdc-typography" style='font-family: Arial;margin: 0;'>
 
@@ -49,6 +52,7 @@
               <span style='margin-left: 12px;color: #fff'>Pace(min/mile)</span>
             </div>
             <div style='height:30px;margin-left:12px;margin-right:12px;display:flex;align-items:center;'>
+              <div id='app'></div>
             </div>
           </div>
         </div>
@@ -56,5 +60,32 @@
     </div>
   </body>
   <script src='../dist/bundle.js'>
+  </script>
+  <script type="text/x-handlebars">
+    <span>scale goes here</span>
+  </script>
+  <script>
+    var App = Ember.Application.create({
+      rootElement: '#app',
+      LOG_RESOLVER: true
+    });
+
+    App.Router.map(function() {
+    });
+
+    App.ApplicationRoute = Ember.Route.extend({
+      actions: {
+        error: function(error) {
+          log(error.message);
+        }
+      }
+    });
+    Ember.onerror = function(error) {
+      log(error.stack);
+    };
+    function log() {
+      var msg = [].slice.call(arguments).join(' ');
+      logs.insertBefore(document.createTextNode("\n" + msg), logs.firstChild);
+    }
   </script>
 </html>
