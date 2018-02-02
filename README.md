@@ -18,7 +18,7 @@ This will start the app at http://localhost:3000/.
 Dev mode for this runs webpack watch. Since there's no fancy JS transpiling going on, webpack is the way to go.
 
 ## testing
-jasmine and however you test angularjs will be incorporated soon :(
+jasmine and however you test ember will be incorporated soon :(
 
 ## next
 I actually dove straight into this before looking at the tcx file format. I just grabbed the first thing that came up for tcx - https://github.com/mapbox/tcx and used that as my parser. As it turns out, I actually lose some data fidelity using that parser so the next thing on my list of TODOs is re-writing the tcx parsing and segment creation to use: https://www.npmjs.com/package/tcx-js.
