@@ -62,7 +62,10 @@
   <script src='../dist/bundle.js'>
   </script>
   <script type="text/x-handlebars">
-    <span>scale goes here</span>
+    {{my-name}}
+  </script>
+  <script type="text/x-handlebars" data-template-name="components/my-name">
+    <span>{{text}}</span>
   </script>
   <script>
     var App = Ember.Application.create({
@@ -87,5 +90,8 @@
       var msg = [].slice.call(arguments).join(' ');
       logs.insertBefore(document.createTextNode("\n" + msg), logs.firstChild);
     }
+    App.MyNameComponent = Ember.Component.extend({
+      text: 'scale goes here',
+    });
   </script>
 </html>
