@@ -1,4 +1,4 @@
-# runspeed-map-angularjs
+# runspeed-map-ember
 I made this to brush up on starting a project from scratch. I liked interface Garmin already has for displaying all my GPS running data but I decided it would be a fun experiment to see if I could do a slightly different take on the data.
 
 To challenge myself I also decided to try to implement the basic scale component using various frameworks. This is the Ember version, you can see the React version here: https://github.com/eacaps/runspeed-map.
