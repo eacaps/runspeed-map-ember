@@ -59,13 +59,21 @@
       </div>
     </div>
   </body>
-  <script src='../dist/bundle.js'>
-  </script>
   <script type="text/x-handlebars">
-    {{my-name}}
+    {{run-scale}}
   </script>
-  <script type="text/x-handlebars" data-template-name="components/my-name">
-    <span>{{text}}</span>
+  <script type="text/x-handlebars" data-template-name="components/run-scale">
+    <div>
+      <span>6 </span>
+      <span>
+        {{#each colors as |color|}}
+          <div style="background-color: {{color}}; height: 10px; width: 10px; display: inline-block;"></div>
+        {{/each}}
+      </span>
+      <span>9 </span>
+    </div>
+  </script>
+  <script src='../dist/bundle.js'>
   </script>
   <script>
     var App = Ember.Application.create({
@@ -88,10 +96,28 @@
     };
     function log() {
       var msg = [].slice.call(arguments).join(' ');
-      logs.insertBefore(document.createTextNode("\n" + msg), logs.firstChild);
+      // logs.insertBefore(document.createTextNode("\n" + msg), logs.firstChild);
     }
-    App.MyNameComponent = Ember.Component.extend({
-      text: 'scale goes here',
+
+    App.RunScaleComponent = Ember.Component.extend({
+      colors: [
+        '#00FF00',
+        '#11EE00',
+        '#22DD00',
+        '#33CC00',
+        '#44BB00',
+        '#55AA00',
+        '#669900',
+        '#778800',
+        '#887700',
+        '#996600',
+        '#AA5500',
+        '#BB4400',
+        '#CC3300',
+        '#DD2200',
+        '#EE1100',
+        '#FF0000',
+      ],
     });
   </script>
 </html>
