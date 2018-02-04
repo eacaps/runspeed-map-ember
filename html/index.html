@@ -64,13 +64,13 @@
   </script>
   <script type="text/x-handlebars" data-template-name="components/run-scale">
     <div>
-      <span>6 </span>
+      <span>{{min}} </span>
       <span>
         {{#each colors as |color|}}
           <div style="background-color: {{color}}; height: 10px; width: 10px; display: inline-block;"></div>
         {{/each}}
       </span>
-      <span>9 </span>
+      <span>{{max}} </span>
     </div>
   </script>
   <script src='../dist/bundle.js'>
@@ -81,25 +81,15 @@
       LOG_RESOLVER: true
     });
 
-    App.Router.map(function() {
+    App.Router.map(() => {
     });
 
     App.ApplicationRoute = Ember.Route.extend({
-      actions: {
-        error: function(error) {
-          log(error.message);
-        }
-      }
     });
-    Ember.onerror = function(error) {
-      log(error.stack);
-    };
-    function log() {
-      var msg = [].slice.call(arguments).join(' ');
-      // logs.insertBefore(document.createTextNode("\n" + msg), logs.firstChild);
-    }
 
     App.RunScaleComponent = Ember.Component.extend({
+      min: 6,
+      max: 9,
       colors: [
         '#00FF00',
         '#11EE00',
